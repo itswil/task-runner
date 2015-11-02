@@ -60,7 +60,7 @@
 
         <section>
           <h2>How does it work?</h2>
-          <pre><code class="hljs" data-trim contenteditable>
+          <pre><code class="bash" data-trim contenteditable>
 # install node via nodejs.org
 
 # using the node package manager, install grunt globally
@@ -87,12 +87,76 @@ grunt watch
         </section>
 
         <section>
+          <h2>CSS Preprocessors</h2>
+          <h3>Variables and Mixins</h3>
+          <pre><code class="lang-scss" data-trim contenteditable>
+// _brand.scss
+$facebook-blue: #3b5998;
+
+@mixin box-shadow() {
+  box-shadow: 10px 5px 5px darken($facebook-blue, 10%);
+}
+
+// _header.scss
+.header--main {
+  @include box-shadow;
+  background-color: $facebook-blue;
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>CSS Preprocessors</h2>
+          <h3>Nesting</h3>
+          <pre><code class="scss" data-trim contenteditable>
+// _header.scss
+.header--main {
+  background-color: $facebook-blue;
+
+  .text-logo {
+    color: $facebook-white;
+  }
+}
+
+// styles.css
+.header--main {
+  background-color: $facebook-blue;
+}
+
+.header--main .text-logo {
+  color: $facebook-white;
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h2>CSS Preprocessors</h2>
+          <h3>Partials and Imports</h3>
+          <pre><code class="scss" data-trim contenteditable>
+// folder structure
+styleguide/
+  _brand.scss
+  _footer.scss
+  _header.scss
+  _typography.scss
+  styleguide.scss
+
+// styleguide.scss
+@import 'brand';
+@import 'typography';
+
+@import 'footer';
+@import 'header';
+          </code></pre>
+        </section>
+
+        <section>
           <h2>What else can a Task Runner do?</h2>
           <ul>
+            <li>PostCSS</li>
             <li>Compress Images</li>
             <li>Browsersync</li>
             <li>Autoprefixer</li>
-            <li>UnCSS</li>
             <li>Inline CSS/JS</li>
           </ul>
           <p>There's ~200k more...</p>
@@ -102,15 +166,25 @@ grunt watch
           <h2>What are some alternatives?</h2>
           <ul>
             <li>Gulp</li>
-            <li>Brocoli</li>
+            <li>Broccoli</li>
             <li>Mimosa</li>
             <li>Brunch</li>
           </ul>
         </section>
 
         <section>
-          <h2>Should I use a Task Runner?<h2>
-          <img class="fragment" src="idontknow.gif" alt="">
+          <h2>Why use a Task Runner?</h2>
+            <ul>
+              <li>Makes development easier</li>
+                <ul>
+                  <li>Tools such as Sass/Less</li>
+                  <li>Improve/maintain code quality</li>
+                </ul>
+              <li>Makes your site perform better</li>
+              <ul>
+                <li>Optimising assets</li>
+              </ul>
+            </ul>
         </section>
 
         <section>
